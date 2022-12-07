@@ -3,5 +3,5 @@ development:
   host: localhost
   database: home_tracking
   username: root
-  password:
+  password: mysql_root
 

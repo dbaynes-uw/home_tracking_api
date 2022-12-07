@@ -1,2 +1,3 @@
-class Todo < ApplicationRecord
+class Area < ApplicationRecord
+  has_many :tasks, :dependent => :destroy
 end
