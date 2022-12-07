@@ -1,0 +1,2801 @@
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTodos (20221121231819)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TABLE "todos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "completed" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221121231819"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (0.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2022-11-21 23:18:30.798876"], ["updated_at", "2022-11-21 23:18:30.798876"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2022-11-21 15:24:16 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/davidbaynes/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/davidbaynes/.rvm/rubies/ruby-3.0.0/lib/ruby/gems/3.0.0/gems/railties-7.0.4/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.2ms | Allocations: 739)
+Completed 200 OK in 10ms (Views: 3.8ms | ActiveRecord: 0.0ms | Allocations: 6996)
+
+
+Started GET "/api/v1/todos" for ::1 at 2022-11-21 15:26:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/todos"):
+  
+Started GET "/favicon.ico" for ::1 at 2022-11-21 15:26:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
+  
+Started GET "/api/v1/todos" for ::1 at 2022-11-21 15:27:56 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NameError (uninitialized constant API
+Did you mean?  Api):
+  
+app/controllers/api/v1/todos_controller.rb:1:in `<main>'
+Started GET "/api/v1/todos" for ::1 at 2022-11-21 15:28:26 -0800
+  
+NameError (uninitialized constant API
+Did you mean?  Api):
+  
+app/controllers/api/v1/todos_controller.rb:1:in `<main>'
+Started GET "/api/v1/todos" for ::1 at 2022-11-21 15:28:49 -0800
+Started GET "/api/v1/todos" for ::1 at 2022-11-21 15:28:49 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 8ms (Views: 0.1ms | ActiveRecord: 0.3ms | Allocations: 14924)
+
+
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 14678)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTodo Create (1.9ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Hello World"], ["completed", 0], ["created_at", "2022-11-21 23:31:44.635474"], ["updated_at", "2022-11-21 23:31:44.635474"]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/todos" for ::1 at 2022-11-21 15:31:48 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 25ms (Views: 0.9ms | ActiveRecord: 1.1ms | Allocations: 16951)
+
+
+Started GET "/api/vi/todos" for ::1 at 2022-11-24 14:09:32 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/todos"):
+  
+Started GET "/api/vi/todos" for ::1 at 2022-11-24 14:12:53 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/todos"):
+  
+Started GET "/api/vi/todos/" for ::1 at 2022-11-24 14:14:33 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/todos"):
+  
+Started GET "/api/vi/todos/" for ::1 at 2022-11-24 14:14:37 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/vi/todos"):
+  
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 14:15:12 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 10ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 16913)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 14:15:16 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 650)
+
+
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 14:17:07 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 638)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 14:21:37 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 29699)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 14:26:42 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 29695)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 14:30:01 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 0.5ms | Allocations: 29696)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:20:27 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.4ms | Allocations: 806)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:20:35 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 651)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:21:23 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 29695)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:21:38 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 3ms (Views: 0.7ms | ActiveRecord: 0.2ms | Allocations: 655)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:22:29 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 650)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:23:23 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 0.5ms | Allocations: 29695)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:23:55 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 655)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:24:13 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:13:in `index'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 0.6ms | Allocations: 29696)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:24:50 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+NoMethodError (undefined method `skip_before_filter' for Api::V1::TodosController:Class
+Did you mean?  skip_before_action):
+  
+app/controllers/api/v1/todos_controller.rb:2:in `<class:TodosController>'
+app/controllers/api/v1/todos_controller.rb:1:in `<main>'
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:26:25 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/v1/todos_controller.rb:2:in `<class:TodosController>'
+app/controllers/api/v1/todos_controller.rb:1:in `<main>'
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:26:42 -0800
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/v1/todos_controller.rb:2:in `<class:TodosController>'
+app/controllers/api/v1/todos_controller.rb:1:in `<main>'
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:26:58 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ArgumentError (Before process_action callback :verify_authenticity_token has not been defined):
+  
+app/controllers/api/v1/todos_controller.rb:2:in `<class:TodosController>'
+app/controllers/api/v1/todos_controller.rb:1:in `<main>'
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:27:15 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 12ms (Views: 0.3ms | ActiveRecord: 0.7ms | Allocations: 30198)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:31:06 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1085)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:34:31 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1080)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:34:37 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1080)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:35:19 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.1ms | Allocations: 1080)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:35:21 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 16ms (Views: 0.2ms | ActiveRecord: 1.0ms | Allocations: 1069)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:35:46 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.2ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:37:19 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1069)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 15:37:24 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 19:11:46 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 1.1ms | Allocations: 1220)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 19:26:28 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 1209)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-24 19:30:24 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mTodo Update (1.6ms)[0m  [1m[33mUPDATE "todos" SET "title" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["title", "Task 1"], ["updated_at", "2022-11-25 16:13:47.821624"], ["id", 1]]
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+Started GET "/api/v1/todos/" for ::1 at 2022-11-25 08:13:57 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 0.8ms | ActiveRecord: 0.6ms | Allocations: 1211)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 13:46:19 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 11ms (Views: 1.1ms | ActiveRecord: 0.7ms | Allocations: 1211)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 13:46:33 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 13:48:37 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 13:52:19 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 14:04:05 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 0.9ms | Allocations: 1209)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 14:06:46 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 14:09:20 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 14:53:43 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 1210)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-26 14:53:51 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 0.4ms | Allocations: 4271)
+
+
+  
+NameError (undefined local variable or method `_limit' for #<Api::V1::TodosController:0x00000000009600>):
+  
+app/controllers/api/v1/todos_controller.rb:58:in `todo_params'
+app/controllers/api/v1/todos_controller.rb:38:in `update'
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-26 14:55:01 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+Completed 500 Internal Server Error in 8ms (ActiveRecord: 0.2ms | Allocations: 2345)
+
+
+  
+NameError (undefined local variable or method `_limit' for #<Api::V1::TodosController:0x00000000009808>):
+  
+app/controllers/api/v1/todos_controller.rb:58:in `todo_params'
+app/controllers/api/v1/todos_controller.rb:38:in `update'
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-26 14:55:13 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 0.7ms | Allocations: 33151)
+
+
+  
+NameError (undefined local variable or method `_limit' for #<Api::V1::TodosController:0x00000000008e30>):
+  
+app/controllers/api/v1/todos_controller.rb:58:in `todo_params'
+app/controllers/api/v1/todos_controller.rb:38:in `update'
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-26 14:57:37 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.3ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-26 22:57:37.571795"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 17ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 33714)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 14:58:00 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1223)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-26 14:58:04 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>false}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.8ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-11-26 22:58:04.691689"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.8ms | Allocations: 2275)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-26 14:58:15 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.3ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-26 22:58:15.739253"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 1.2ms | Allocations: 2267)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-26 14:58:22 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>false}}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.4ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-11-26 22:58:22.133178"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 23ms (Views: 0.2ms | ActiveRecord: 1.6ms | Allocations: 2268)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 15:00:58 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1068)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-26 15:01:04 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.6ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-26 23:01:04.068677"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 2255)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-26 15:01:06 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>false}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.8ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-11-26 23:01:06.435232"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 2249)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 16:27:50 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 6ms (Views: 0.8ms | ActiveRecord: 0.7ms | Allocations: 1218)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 16:48:51 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 1209)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 16:49:11 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.5ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 16:57:56 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 1209)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 17:01:53 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1069)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 17:01:56 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 17:04:36 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 17:06:08 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-26 17:07:32 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:33:09 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 1209)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:33:47 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 7ms (Views: 3.1ms | ActiveRecord: 0.4ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:36:49 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:40:32 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:43:50 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 8ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:45:24 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 7ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:47:10 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:47:15 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 4ms (Views: 0.8ms | ActiveRecord: 0.4ms | Allocations: 1068)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 06:47:18 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.5ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-27 14:47:18.723818"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 9ms (Views: 0.8ms | ActiveRecord: 2.3ms | Allocations: 2274)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:47:25 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:47:52 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:48:00 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:49:21 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:50:31 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:50:36 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 06:50:57 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>false}}
+  [1m[36mTodo Load (0.9ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.7ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-11-27 14:50:57.908634"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 3.2ms | Allocations: 2249)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 06:50:59 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.9ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-27 14:50:59.219717"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 14ms (Views: 0.7ms | ActiveRecord: 3.8ms | Allocations: 2249)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:51:41 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.2ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:52:12 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 06:52:26 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>false}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.9ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-11-27 14:52:26.549158"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 2.8ms | Allocations: 2249)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 06:52:46 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.7ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-27 14:52:46.232491"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 9ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 2249)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 06:52:53 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>false}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (1.1ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-11-27 14:52:53.045952"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 14ms (Views: 0.5ms | ActiveRecord: 4.0ms | Allocations: 2249)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 06:54:39 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.6ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-27 14:54:39.710861"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 2249)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:58:16 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 2ms (Views: 0.3ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 06:59:44 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1069)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:00:03 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 07:00:07 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>false}}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.8ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-11-27 15:00:07.267132"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 2.6ms | Allocations: 2249)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 07:00:08 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.7ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-27 15:00:08.984674"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 3.4ms | Allocations: 2249)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:26:24 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 12ms (Views: 0.6ms | ActiveRecord: 0.8ms | Allocations: 1209)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:28:06 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:28:17 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:29:34 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:36:24 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 9ms (Views: 0.9ms | ActiveRecord: 0.6ms | Allocations: 1209)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:37:06 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:37:30 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:38:29 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:38:58 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.7ms | Allocations: 1068)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 07:39:07 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>false}}
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (1.2ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-11-27 15:39:07.167520"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 15ms (Views: 0.5ms | ActiveRecord: 4.3ms | Allocations: 2275)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-11-27 07:39:08 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.7ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-27 15:39:08.317479"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 2249)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:39:32 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 4ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:40:36 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.4ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:41:07 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:41:28 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:41:54 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:42:33 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 07:46:20 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 1ms (Views: 0.2ms | ActiveRecord: 0.1ms | Allocations: 1068)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 10:16:18 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.6ms | Allocations: 1209)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 10:16:31 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.3ms | Allocations: 1068)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-11-27 10:16:37 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"test", "completed"=>false}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (1.7ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "test"], ["completed", 0], ["created_at", "2022-11-27 18:16:37.960507"], ["updated_at", "2022-11-27 18:16:37.960507"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 500 Internal Server Error in 17ms (ActiveRecord: 3.3ms | Allocations: 3049)
+
+
+  
+NoMethodError (undefined method `todo_url' for #<Api::V1::TodosController:0x0000000000a4b0>):
+  
+app/controllers/api/v1/todos_controller.rb:30:in `create'
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  [1m[36mTodo Count (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 10:18:38 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.6ms | ActiveRecord: 0.4ms | Allocations: 1172)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-11-27 10:23:03 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Task 3", "completed"=>false}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (0.8ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Task 3"], ["completed", 0], ["created_at", "2022-11-27 18:23:03.329678"], ["updated_at", "2022-11-27 18:23:03.329678"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 500 Internal Server Error in 12ms (ActiveRecord: 2.0ms | Allocations: 2861)
+
+
+  
+NoMethodError (undefined method `todo_url' for #<Api::V1::TodosController:0x0000000000a708>):
+  
+app/controllers/api/v1/todos_controller.rb:30:in `create'
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 10:23:19 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.0ms | Allocations: 3791)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-11-27 10:23:25 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Task 4", "completed"=>false}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (0.7ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Task 4"], ["completed", 0], ["created_at", "2022-11-27 18:23:25.098406"], ["updated_at", "2022-11-27 18:23:25.098406"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 7ms (Views: 0.4ms | ActiveRecord: 1.9ms | Allocations: 1829)
+
+
+Started PUT "/api/v1/todos//3" for ::1 at 2022-11-27 10:23:48 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"3", "title"=>"Task 3", "completed"=>true, "todo"=>{"id"=>"3", "title"=>"Task 3", "completed"=>true}}
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (1.1ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-11-27 18:23:48.621674"], ["id", 3]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 3.7ms | Allocations: 2418)
+
+
+Started PUT "/api/v1/todos//3" for ::1 at 2022-11-27 10:23:50 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"3", "title"=>"Task 3", "completed"=>false, "todo"=>{"id"=>"3", "title"=>"Task 3", "completed"=>false}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (1.2ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-11-27 18:23:50.514184"], ["id", 3]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 3.7ms | Allocations: 2249)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 14:48:55 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.6ms | Allocations: 1525)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 20:13:17 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 8ms (Views: 0.8ms | ActiveRecord: 0.9ms | Allocations: 1525)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 20:23:59 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 6ms (Views: 0.7ms | ActiveRecord: 0.6ms | Allocations: 1525)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-11-27 20:26:52 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Task 5", "completed"=>false}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (1.0ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Task 5"], ["completed", 0], ["created_at", "2022-11-28 04:26:52.623846"], ["updated_at", "2022-11-28 04:26:52.623846"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 6ms (Views: 0.4ms | ActiveRecord: 1.6ms | Allocations: 1760)
+
+
+Started GET "/api/v1/todos/?_limit=5" for ::1 at 2022-11-27 20:27:59 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"5"}
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 11ms (Views: 1.4ms | ActiveRecord: 0.6ms | Allocations: 1369)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-11-27 20:28:13 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Task 6", "completed"=>false}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (1.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Task 6"], ["completed", 0], ["created_at", "2022-11-28 04:28:13.659121"], ["updated_at", "2022-11-28 04:28:13.659121"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (2.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 12ms (Views: 0.5ms | ActiveRecord: 4.3ms | Allocations: 1760)
+
+
+Started GET "/api/v1/todos/?_limit=25" for ::1 at 2022-11-27 20:28:21 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"25"}
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 25]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 1.7ms | ActiveRecord: 1.1ms | Allocations: 1214)
+
+
+Started GET "/api/v1/todos/?_limit=5" for ::1 at 2022-11-27 20:28:24 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"5"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 2ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 1109)
+
+
+Started GET "/api/v1/todos/?_limit=25" for ::1 at 2022-11-27 20:28:28 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"25"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 25]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 5ms (Views: 1.5ms | ActiveRecord: 0.4ms | Allocations: 1214)
+
+
+Started GET "/api/v1/todos/?_limit=5" for ::1 at 2022-11-27 21:00:41 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"5"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 5ms (Views: 1.6ms | ActiveRecord: 0.8ms | Allocations: 1250)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 21:08:55 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 13482)
+
+
+  
+NoMethodError (undefined method `magenta' for nil:NilClass):
+  
+app/controllers/api/v1/todos_controller.rb:7:in `index'
+Started GET "/api/v1/todos/?_limit=5" for ::1 at 2022-11-27 21:09:39 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"5"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 13ms (Views: 0.5ms | ActiveRecord: 0.9ms | Allocations: 17825)
+
+
+Started GET "/api/v1/todos/?_limit=500" for ::1 at 2022-11-27 21:10:49 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"500"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 500]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 0.7ms | ActiveRecord: 0.9ms | Allocations: 3871)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 21:12:13 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.3ms | Allocations: 1699)
+
+
+Started GET "/api/v1/todos/?_limit=1" for ::1 at 2022-11-27 21:12:16 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"1"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 5ms (Views: 1.0ms | ActiveRecord: 0.5ms | Allocations: 703)
+
+
+Started GET "/api/v1/todos/?_limit=5" for ::1 at 2022-11-27 21:12:21 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"5"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 1.6ms | ActiveRecord: 0.4ms | Allocations: 1111)
+
+
+Started GET "/api/v1/todos/?_limit=10" for ::1 at 2022-11-27 21:12:24 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"10"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 6ms (Views: 2.1ms | ActiveRecord: 0.5ms | Allocations: 1216)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 21:22:08 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 18ms (Views: 5.5ms | ActiveRecord: 1.0ms | Allocations: 1739)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 21:22:20 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 1598)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 21:29:46 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 0.7ms | Allocations: 1740)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-27 21:32:17 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (1.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 6ms (Views: 1.5ms | ActiveRecord: 1.1ms | Allocations: 1598)
+
+
+Started DELETE "/api/v1/todos//1" for ::1 at 2022-11-27 21:32:23 -0800
+Processing by Api::V1::TodosController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTodo Destroy (0.5ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+Completed 204 No Content in 25ms (ActiveRecord: 2.2ms | Allocations: 3651)
+
+
+Started GET "/api/v1/todos/?_limit=1" for ::1 at 2022-11-27 21:32:33 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"1"}
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 6ms (Views: 1.5ms | ActiveRecord: 0.7ms | Allocations: 715)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-11-28 11:12:30 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 6ms (Views: 1.7ms | ActiveRecord: 0.7ms | Allocations: 1636)
+
+
+Started GET "/api/v1/todos/?_limit=50" for ::1 at 2022-11-28 11:12:33 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"50"}
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 50]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 9ms (Views: 3.8ms | ActiveRecord: 0.7ms | Allocations: 1136)
+
+
+Started GET "/api/v1/todos/?_limit=5" for ::1 at 2022-11-28 11:12:35 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"5"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1111)
+
+
+Started GET "/api/v1/todos/?_limit=1" for ::1 at 2022-11-28 11:12:37 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"1"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 6ms (Views: 0.5ms | ActiveRecord: 0.4ms | Allocations: 690)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:19:44 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:19:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:19:49 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:19:51 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:19:53 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:19:55 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:19:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:19:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:02 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:13 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:20 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:26 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:44 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:48 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/api/v1/todos/" for ::1 at 2022-12-02 17:20:53 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 0.6ms | Allocations: 30596)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:20:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:02 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started PUT "/api/v1/todos//6" for ::1 at 2022-12-02 17:21:15 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"6", "title"=>"Task 6", "completed"=>true, "todo"=>{"id"=>"6", "title"=>"Task 6", "completed"=>true}}
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (2.2ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-12-03 01:21:15.915175"], ["id", 6]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 20ms (Views: 0.4ms | ActiveRecord: 4.0ms | Allocations: 3630)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:20 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started PUT "/api/v1/todos//6" for ::1 at 2022-12-02 17:21:21 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"6", "title"=>"Task 6", "completed"=>false, "todo"=>{"id"=>"6", "title"=>"Task 6", "completed"=>false}}
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.7ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-12-03 01:21:21.327752"], ["id", 6]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 25ms (Views: 0.6ms | ActiveRecord: 3.0ms | Allocations: 2271)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:26 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:44 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:48 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:21:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:02 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:20 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:26 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/api/v1/todos/" for ::1 at 2022-12-02 17:22:41 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 1.4ms | ActiveRecord: 0.4ms | Allocations: 1492)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:44 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:48 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started PUT "/api/v1/todos//6" for ::1 at 2022-12-02 17:22:50 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"6", "title"=>"Task 6", "completed"=>true, "todo"=>{"id"=>"6", "title"=>"Task 6", "completed"=>true}}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.6ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-12-03 01:22:50.589738"], ["id", 6]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 8ms (Views: 0.3ms | ActiveRecord: 2.3ms | Allocations: 2249)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started PUT "/api/v1/todos//5" for ::1 at 2022-12-02 17:22:58 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"5", "title"=>"Task 5", "completed"=>true, "todo"=>{"id"=>"5", "title"=>"Task 5", "completed"=>true}}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (1.2ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-12-03 01:22:58.298329"], ["id", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 14ms (Views: 0.4ms | ActiveRecord: 3.6ms | Allocations: 2248)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:22:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started DELETE "/api/v1/todos//5" for ::1 at 2022-12-02 17:23:00 -0800
+Processing by Api::V1::TodosController#destroy as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTodo Destroy (1.0ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+Completed 204 No Content in 12ms (ActiveRecord: 3.3ms | Allocations: 1845)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:02 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started POST "/api/v1/todos/" for ::1 at 2022-12-02 17:23:11 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Task 5", "completed"=>false}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (1.1ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Task 5"], ["completed", 0], ["created_at", "2022-12-03 01:23:11.683605"], ["updated_at", "2022-12-03 01:23:11.683605"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 10ms (Views: 0.2ms | ActiveRecord: 3.9ms | Allocations: 1866)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/api/v1/todos/?_limit=1" for ::1 at 2022-12-02 17:23:18 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"1"}
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 0.6ms | Allocations: 951)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:20 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:26 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/api/v1/todos/?_limit=5" for ::1 at 2022-12-02 17:23:27 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"5"}
+  [1m[36mTodo Load (0.5ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 0.5ms | Allocations: 1110)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:44 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:48 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started PUT "/api/v1/todos//6" for ::1 at 2022-12-02 17:23:56 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"6", "title"=>"Task 6", "completed"=>false, "todo"=>{"id"=>"6", "title"=>"Task 6", "completed"=>false}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (1.1ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-12-03 01:23:56.083459"], ["id", 6]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 3.9ms | Allocations: 2248)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:23:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:02 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:20 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:26 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started DELETE "/api/v1/todos//2" for ::1 at 2022-12-02 17:24:34 -0800
+Processing by Api::V1::TodosController#destroy as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTodo Destroy (1.0ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 2]]
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+Completed 204 No Content in 11ms (ActiveRecord: 3.8ms | Allocations: 1747)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started POST "/api/v1/todos/" for ::1 at 2022-12-02 17:24:41 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Task 1", "completed"=>false}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (3.0ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Task 1"], ["completed", 0], ["created_at", "2022-12-03 01:24:42.006019"], ["updated_at", "2022-12-03 01:24:42.006019"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 11ms (Views: 0.4ms | ActiveRecord: 4.4ms | Allocations: 1759)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:44 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:48 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:24:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:02 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started DELETE "/api/v1/todos//3" for ::1 at 2022-12-02 17:25:07 -0800
+Processing by Api::V1::TodosController#destroy as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTodo Destroy (1.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 3]]
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (2.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+Completed 204 No Content in 14ms (ActiveRecord: 4.4ms | Allocations: 1748)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:20 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:26 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:44 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:48 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:25:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started POST "/api/v1/todos/" for ::1 at 2022-12-02 17:25:59 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Task 2", "completed"=>false}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (1.6ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Task 2"], ["completed", 0], ["created_at", "2022-12-03 01:25:59.762889"], ["updated_at", "2022-12-03 01:25:59.762889"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 10ms (Views: 0.3ms | ActiveRecord: 3.9ms | Allocations: 1759)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:02 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:20 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:26 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:39 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:44 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:48 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:26:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:02 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:20 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:26 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:34 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:36 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:38 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:40 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:42 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:44 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:46 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:48 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started POST "/api/v1/todos/" for ::1 at 2022-12-02 17:27:49 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Task 7", "completed"=>false}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (1.2ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Task 7"], ["completed", 0], ["created_at", "2022-12-03 01:27:49.563270"], ["updated_at", "2022-12-03 01:27:49.563270"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 13ms (Views: 0.4ms | ActiveRecord: 3.5ms | Allocations: 1773)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:50 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:52 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:54 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:56 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/api/v1/todos/?_limit=1" for ::1 at 2022-12-02 17:27:57 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"1"}
+  [1m[36mTodo Load (0.6ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 5ms (Views: 0.4ms | ActiveRecord: 0.6ms | Allocations: 690)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:27:58 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/api/v1/todos/?_limit=5" for ::1 at 2022-12-02 17:27:59 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"5"}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 5]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 8ms (Views: 2.5ms | ActiveRecord: 0.4ms | Allocations: 1110)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:00 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/api/v1/todos/?_limit=10" for ::1 at 2022-12-02 17:28:02 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"10"}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" ORDER BY "todos"."id" DESC LIMIT ?[0m  [["LIMIT", 10]]
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 4ms (Views: 1.7ms | ActiveRecord: 0.2ms | Allocations: 1215)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:02 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/api/v1/todos/" for ::1 at 2022-12-02 17:28:04 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 7ms (Views: 5.0ms | ActiveRecord: 0.3ms | Allocations: 1627)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:04 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:06 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:08 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:10 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started PUT "/api/v1/todos//8" for ::1 at 2022-12-02 17:28:12 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"8", "title"=>"Task 1", "completed"=>true, "todo"=>{"id"=>"8", "title"=>"Task 1", "completed"=>true}}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (1.1ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-12-03 01:28:12.431706"], ["id", 8]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 14ms (Views: 0.3ms | ActiveRecord: 3.3ms | Allocations: 2251)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:12 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:14 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:16 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started PUT "/api/v1/todos//8" for ::1 at 2022-12-02 17:28:17 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"8", "title"=>"Task 1", "completed"=>false, "todo"=>{"id"=>"8", "title"=>"Task 1", "completed"=>false}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (1.1ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-12-03 01:28:17.527813"], ["id", 8]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 2251)
+
+
+Started PUT "/api/v1/todos//9" for ::1 at 2022-12-02 17:28:18 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"9", "title"=>"Task 2", "completed"=>true, "todo"=>{"id"=>"9", "title"=>"Task 2", "completed"=>true}}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.5ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-12-03 01:28:18.633669"], ["id", 9]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 2371)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:18 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started PUT "/api/v1/todos//6" for ::1 at 2022-12-02 17:28:19 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"6", "title"=>"Task 6", "completed"=>true, "todo"=>{"id"=>"6", "title"=>"Task 6", "completed"=>true}}
+  [1m[36mTodo Load (1.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.6ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-12-03 01:28:19.737107"], ["id", 6]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 11ms (Views: 0.4ms | ActiveRecord: 3.3ms | Allocations: 2248)
+
+
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:20 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:24 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:26 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+Started GET "/__vite_ping" for ::1 at 2022-12-02 17:28:28 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/__vite_ping"):
+  
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTodos (20221121231819)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mDROP TABLE "todos"[0m
+  [1m[36mActiveRecord::SchemaMigration Delete All (0.1ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = ?[0m  [["version", "20221121231819"]]
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
