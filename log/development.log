@@ -3209,3 +3209,162 @@ Processing by Api::V1::TodosController#destroy as HTML
 Completed 204 No Content in 10ms (ActiveRecord: 3.9ms | Allocations: 1847)
 
 
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT GET_LOCK('7078900069177359885', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('7078900069177359885')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('7078900069177359885', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateTodos (20221121231819)
+  [1m[35m (17.5ms)[0m  [1m[35mCREATE TABLE `todos` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `title` varchar(255), `completed` tinyint(1), `created_at` datetime(6) NOT NULL, `updated_at` datetime(6) NOT NULL)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20221121231819')[0m
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.4ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('7078900069177359885')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started POST "/api/v1/todos/" for ::1 at 2022-12-08 21:04:38 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"test 1", "completed"=>false}}
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (0.5ms)[0m  [1m[32mINSERT INTO `todos` (`title`, `completed`, `created_at`, `updated_at`) VALUES ('test 1', FALSE, '2022-12-09 05:04:38.344671', '2022-12-09 05:04:38.344671')[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 23ms (Views: 0.2ms | ActiveRecord: 6.3ms | Allocations: 32815)
+
+
+Started DELETE "/api/v1/todos//1" for ::1 at 2022-12-08 21:04:46 -0800
+Processing by Api::V1::TodosController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (1.1ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` WHERE `todos`.`id` = 1 LIMIT 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTodo Destroy (0.5ms)[0m  [1m[31mDELETE FROM `todos` WHERE `todos`.`id` = 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+Completed 204 No Content in 12ms (ActiveRecord: 2.7ms | Allocations: 2883)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-12-08 21:04:51 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Furnace", "completed"=>false}}
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (0.8ms)[0m  [1m[32mINSERT INTO `todos` (`title`, `completed`, `created_at`, `updated_at`) VALUES ('Furnace', FALSE, '2022-12-09 05:04:51.879030', '2022-12-09 05:04:51.879030')[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 12ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 1823)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-12-08 21:05:03 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Dining Room", "completed"=>false}}
+  [1m[36mTRANSACTION (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (2.1ms)[0m  [1m[32mINSERT INTO `todos` (`title`, `completed`, `created_at`, `updated_at`) VALUES ('Dining Room', FALSE, '2022-12-09 05:05:03.418207', '2022-12-09 05:05:03.418207')[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (4.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 16ms (Views: 0.3ms | ActiveRecord: 7.1ms | Allocations: 1823)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-12-08 21:05:19 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Master Bedroom", "completed"=>false}}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (0.7ms)[0m  [1m[32mINSERT INTO `todos` (`title`, `completed`, `created_at`, `updated_at`) VALUES ('Master Bedroom', FALSE, '2022-12-09 05:05:19.225947', '2022-12-09 05:05:19.225947')[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 8ms (Views: 0.7ms | ActiveRecord: 2.1ms | Allocations: 1823)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-12-08 21:05:30 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"Bath Rooms", "completed"=>false}}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (0.9ms)[0m  [1m[32mINSERT INTO `todos` (`title`, `completed`, `created_at`, `updated_at`) VALUES ('Bath Rooms', FALSE, '2022-12-09 05:05:30.758941', '2022-12-09 05:05:30.758941')[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 10ms (Views: 0.4ms | ActiveRecord: 2.6ms | Allocations: 1809)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 21:06:29 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (3.1ms)[0m  [1m[34mSELECT COUNT(*) FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT `todos`.* FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 7ms (Views: 0.4ms | ActiveRecord: 3.4ms | Allocations: 1476)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 21:12:06 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (6.6ms)[0m  [1m[34mSELECT `todos`.* FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 20ms (Views: 1.7ms | ActiveRecord: 9.1ms | Allocations: 1470)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 21:20:30 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT `todos`.* FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 7ms (Views: 0.6ms | ActiveRecord: 2.2ms | Allocations: 1469)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 21:22:22 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (1.2ms)[0m  [1m[34mSELECT COUNT(*) FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT `todos`.* FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 4ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 1357)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 21:26:38 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (1.3ms)[0m  [1m[34mSELECT COUNT(*) FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT `todos`.* FROM `todos`[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 1.7ms | Allocations: 1356)
+
+
+Started GET "/api/v1/todos/?_limit=2" for ::1 at 2022-12-08 21:26:42 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"2"}
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` ORDER BY `todos`.`id` DESC LIMIT 2[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 9ms (Views: 1.3ms | ActiveRecord: 0.7ms | Allocations: 1009)
+
+
+Started GET "/api/v1/todos/?_limit=1" for ::1 at 2022-12-08 21:26:51 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"1"}
+  [1m[36mTodo Load (2.9ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` ORDER BY `todos`.`id` DESC LIMIT 1[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 10ms (Views: 1.4ms | ActiveRecord: 2.9ms | Allocations: 689)
+
+
+Started GET "/api/v1/todos/?_limit=5" for ::1 at 2022-12-08 21:26:54 -0800
+Processing by Api::V1::TodosController#index as HTML
+  Parameters: {"_limit"=>"5"}
+  [1m[36mTodo Load (3.5ms)[0m  [1m[34mSELECT `todos`.* FROM `todos` ORDER BY `todos`.`id` DESC LIMIT 5[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:14:in `index'
+Completed 200 OK in 31ms (Views: 8.9ms | ActiveRecord: 3.5ms | Allocations: 933)
+
+
