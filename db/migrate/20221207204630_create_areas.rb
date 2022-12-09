@@ -8,7 +8,7 @@ class CreateAreas < ActiveRecord::Migration[7.0]
      t.string     :assigned_to
      t.string     :assigned_to_email
      t.string     :notes
-     t.string     :status
+     t.boolean    :status
      t.timestamps
     end  
   end
