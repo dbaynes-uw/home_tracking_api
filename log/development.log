@@ -3153,3 +3153,59 @@ Started POST "/api/v1/areas/" for ::1 at 2022-12-08 20:48:33 -0800
   
 ActionController::RoutingError (No route matches [POST] "/api/v1/areas"):
   
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 20:51:34 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 16ms (Views: 0.5ms | ActiveRecord: 0.5ms | Allocations: 30310)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-12-08 20:51:38 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"", "completed"=>false}}
+  [1m[36mTodo Load (0.8ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.9ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-12-09 04:51:38.931026"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 15ms (Views: 0.4ms | ActiveRecord: 3.1ms | Allocations: 3633)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 20:54:48 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.0ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 2ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1189)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 20:54:53 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.5ms | ActiveRecord: 0.3ms | Allocations: 1189)
+
+
+Started DELETE "/api/v1/todos//1" for ::1 at 2022-12-08 20:54:56 -0800
+Processing by Api::V1::TodosController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mTodo Load (0.3ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTodo Destroy (1.2ms)[0m  [1m[31mDELETE FROM "todos" WHERE "todos"."id" = ?[0m  [["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+  [1m[36mTRANSACTION (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:47:in `destroy'
+Completed 204 No Content in 10ms (ActiveRecord: 3.9ms | Allocations: 1847)
+
+
