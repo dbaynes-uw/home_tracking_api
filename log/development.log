@@ -2992,3 +2992,164 @@ Migrating to CreateTasks (20221207204642)
   [1m[36mTask Create (0.7ms)[0m  [1m[32mINSERT INTO `tasks` (`area_id`, `name`, `description`, `assigned_to`, `assigned_to_email`, `notes`, `status`, `created_at`, `updated_at`) VALUES (1, 'Change Air Filter', NULL, NULL, NULL, NULL, NULL, '2022-12-07 22:27:50.077369', '2022-12-07 22:27:50.077369')[0m
   [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
   [1m[36mTask Load (1.3ms)[0m  [1m[34mSELECT `tasks`.* FROM `tasks` WHERE `tasks`.`area_id` = 1 ORDER BY `tasks`.`id` ASC LIMIT 1[0m
+Started POST "/api/v1/areas/" for ::1 at 2022-12-08 20:13:31 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/areas"):
+  
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 20:17:20 -0800
+Processing by Api::V1::TodosController#index as HTML
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 1.6ms | Allocations: 1032)
+
+
+  
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'home_tracking.todos' doesn't exist):
+  
+app/controllers/api/v1/todos_controller.rb:16:in `index'
+Started POST "/api/v1/todos/" for ::1 at 2022-12-08 20:17:27 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"test", "completed"=>false}}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 1.5ms | Allocations: 277)
+
+
+  
+ActiveRecord::StatementInvalid (Mysql2::Error: Table 'home_tracking.todos' doesn't exist):
+  
+app/controllers/api/v1/todos_controller.rb:27:in `create'
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateTodos (20221121231819)
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE TABLE "todos" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "completed" boolean, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20221121231819"]]
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started POST "/api/v1/todos/" for ::1 at 2022-12-08 20:28:08 -0800
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"", "completed"=>false}}
+  [1m[36mTRANSACTION (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (0.3ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", ""], ["completed", 0], ["created_at", "2022-12-09 04:28:08.706755"], ["updated_at", "2022-12-09 04:28:08.706755"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 15ms (Views: 0.3ms | ActiveRecord: 1.1ms | Allocations: 32835)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 20:29:06 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 0.2ms | Allocations: 1354)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-12-08 20:29:31 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"", "completed"=>true}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.6ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-12-09 04:29:31.397507"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 3231)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-12-08 20:29:32 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"", "completed"=>false, "todo"=>{"id"=>"1", "title"=>"", "completed"=>false}}
+  [1m[36mTodo Load (0.2ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.7ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-12-09 04:29:32.631389"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 2.9ms | Allocations: 2268)
+
+
+Started GET "/api/v1/todos/" for ::1 at 2022-12-08 20:30:19 -0800
+Processing by Api::V1::TodosController#index as HTML
+  [1m[36mTodo Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:16:in `index'
+  [1m[36mTodo Load (0.1ms)[0m  [1m[34mSELECT "todos".* FROM "todos"[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:17:in `index'
+Completed 200 OK in 3ms (Views: 0.4ms | ActiveRecord: 0.4ms | Allocations: 1084)
+
+
+Started POST "/api/v1/todos/" for ::1 at 2022-12-08 20:30:31 -0800
+Processing by Api::V1::TodosController#create as HTML
+  Parameters: {"todo"=>{"title"=>"todo2", "completed"=>false}}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTodo Create (1.4ms)[0m  [1m[32mINSERT INTO "todos" ("title", "completed", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "todo2"], ["completed", 0], ["created_at", "2022-12-09 04:30:31.775240"], ["updated_at", "2022-12-09 04:30:31.775240"]]
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:29:in `create'
+Completed 201 Created in 11ms (Views: 0.3ms | ActiveRecord: 2.6ms | Allocations: 1760)
+
+
+Started PUT "/api/v1/todos//1" for ::1 at 2022-12-08 20:30:35 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"1", "title"=>"", "completed"=>true, "todo"=>{"id"=>"1", "title"=>"", "completed"=>true}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (1.1ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-12-09 04:30:35.557723"], ["id", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 3.6ms | Allocations: 2255)
+
+
+Started PUT "/api/v1/todos//2" for ::1 at 2022-12-08 20:35:37 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"2", "title"=>"todo2", "completed"=>true, "todo"=>{"id"=>"2", "title"=>"todo2", "completed"=>true}}
+  [1m[36mTodo Load (0.4ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.8ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 1], ["updated_at", "2022-12-09 04:35:37.091946"], ["id", 2]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 10ms (Views: 0.4ms | ActiveRecord: 2.4ms | Allocations: 2249)
+
+
+Started PUT "/api/v1/todos//2" for ::1 at 2022-12-08 20:35:38 -0800
+Processing by Api::V1::TodosController#update as HTML
+  Parameters: {"id"=>"2", "title"=>"todo2", "completed"=>false, "todo"=>{"id"=>"2", "title"=>"todo2", "completed"=>false}}
+  [1m[36mTodo Load (0.7ms)[0m  [1m[34mSELECT "todos".* FROM "todos" WHERE "todos"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/api/v1/todos_controller.rb:53:in `set_todo'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTodo Update (0.8ms)[0m  [1m[33mUPDATE "todos" SET "completed" = ?, "updated_at" = ? WHERE "todos"."id" = ?[0m  [["completed", 0], ["updated_at", "2022-12-09 04:35:38.089278"], ["id", 2]]
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/api/v1/todos_controller.rb:38:in `update'
+Completed 200 OK in 13ms (Views: 0.4ms | ActiveRecord: 3.1ms | Allocations: 2249)
+
+
+Started GET "/api/v1/areas/" for ::1 at 2022-12-08 20:46:17 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/areas"):
+  
+Started POST "/api/v1/areas/" for ::1 at 2022-12-08 20:46:23 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/areas"):
+  
+Started GET "/api/v1/areas/" for ::1 at 2022-12-08 20:48:30 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/api/v1/areas"):
+  
+Started POST "/api/v1/areas/" for ::1 at 2022-12-08 20:48:33 -0800
+  
+ActionController::RoutingError (No route matches [POST] "/api/v1/areas"):
+  
