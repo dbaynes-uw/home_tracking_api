@@ -11,10 +11,13 @@ class Api::V1::AreasController < ApplicationController
 
     if limit.present?
       limit = limit.to_i
-      @areas = @areas.last(limit)
+      @areas = @areas.last(limit).to_json({include: [:tasks]})
     end
-    puts "@Areas count: #{@areas.count}".cyan
-    render json: @areas.reverse
+    puts "@Areas: #{@areas.to_json({include: [:tasks]})}".cyan
+
+
+    # puts "Area Description: #{@areas.first.description}".magenta
+    render json: @areas.reverse.to_json({include: [:tasks]})
   end
 
   # GET /areas/1
@@ -56,6 +59,7 @@ class Api::V1::AreasController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def area_params
-      params.require(:area).permit(:id, :name, :status, :_limit)
+      puts "Params: #{params}".magenta
+      params.require(:area).permit(:id, :name, :description, :status, :_limit)
     end
 end
