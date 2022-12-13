@@ -11,11 +11,9 @@ class Api::V1::AreasController < ApplicationController
 
     if limit.present?
       limit = limit.to_i
-      @areas = @areas.last(limit).to_json({include: [:tasks]})
+      @areas = @areas.last(limit) #.to_json({include: [:tasks]})
     end
     puts "@Areas: #{@areas.to_json({include: [:tasks]})}".cyan
-
-
     # puts "Area Description: #{@areas.first.description}".magenta
     render json: @areas.reverse.to_json({include: [:tasks]})
   end
@@ -30,6 +28,9 @@ class Api::V1::AreasController < ApplicationController
     puts "Area Create: #{area_params}".magenta
     @area = Area.new(area_params)
 
+    if @area.save
+      @area.tasks.create(task_params)
+    end
     if @area.save
       render json: @area, status: :created, location: 'api/vi/areas/path(@area)'
     else
@@ -60,6 +61,18 @@ class Api::V1::AreasController < ApplicationController
     # Only allow a list of trusted parameters through.
     def area_params
       puts "Params: #{params}".magenta
-      params.require(:area).permit(:id, :name, :description, :status, :_limit)
+      params.require(:area).permit(:id, :name, :description, :frequency, :status, :_limit)
     end
+    def task_params
+      unless params[:tasks].empty?
+        params.require(:tasks).map do |task|
+          task.permit(:name,
+                      :description,
+                     :fee_or_balance,
+                     :assigned_to,
+                     :assigned_to_email,
+                     :notes)
+        end
+      end
+    end    
 end
