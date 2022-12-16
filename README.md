@@ -21,4 +21,12 @@ Things you may want to cover:
 
 * Deployment instructions
 
+* ToDos:
+  - Rake tasks:
+    - for over dues
+  - Queries
+    - 
+  - Email Notifications
+
+
 * ...

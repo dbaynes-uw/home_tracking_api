@@ -3,19 +3,17 @@ class Api::V1::AreasController < ApplicationController
   before_action :set_area, only: %i[ show update destroy ]
 
   # GET /areas
-  def index
-    puts "Params Limit: #{params[:_limit]}".magenta
-    @areas = Area.all
-    
-    limit = params[:_limit]
-
-    if limit.present?
-      limit = limit.to_i
-      @areas = @areas.last(limit) #.to_json({include: [:tasks]})
+  def index 
+    if params[:_dueFilter].present?
+      dueBy = params[:_dueFilter].to_str()
+      @areas = Area.where("frequency <= ? ", dueBy)
+    elsif params[:_limit].present?
+      limit = params[:_limit].to_i
+      @areas = Area.order(frequency: "asc").last(limit) 
+    else
+      @areas = Area.order(frequency: "asc")
     end
-    puts "@Areas: #{@areas.to_json({include: [:tasks]})}".cyan
-    # puts "Area Description: #{@areas.first.description}".magenta
-    render json: @areas.reverse.to_json({include: [:tasks]})
+    render json: @areas.to_json({include: [:tasks]})
   end
 
   # GET /areas/1
@@ -25,7 +23,6 @@ class Api::V1::AreasController < ApplicationController
 
   # POST /areas
   def create
-    puts "Area Create: #{area_params}".magenta
     @area = Area.new(area_params)
 
     if @area.save
@@ -61,7 +58,7 @@ class Api::V1::AreasController < ApplicationController
     # Only allow a list of trusted parameters through.
     def area_params
       puts "Params: #{params}".magenta
-      params.require(:area).permit(:id, :name, :description, :frequency, :status, :_limit)
+      params.require(:area).permit(:id, :name, :description, :frequency, :completed, :_limit, :_dueFilter)
     end
     def task_params
       unless params[:tasks].empty?

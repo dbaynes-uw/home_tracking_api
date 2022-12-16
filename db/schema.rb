@@ -14,12 +14,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_204642) do
   create_table "areas", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "frequency"
-    t.string "days_since_completed"
+    t.integer "frequency"
+    t.integer "days_since_completed"
     t.string "assigned_to"
     t.string "assigned_to_email"
     t.string "notes"
-    t.boolean "status"
+    t.boolean "completed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
