@@ -25,6 +25,11 @@ Things you may want to cover:
   - Rake tasks:
     - for over dues
   - Queries
+    - Due Today
+    - Next Week
+    - etc...
+    - Over Due
+
     - 
   - Email Notifications
 

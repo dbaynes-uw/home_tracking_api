@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_07_204642) do
     t.string "name"
     t.string "description"
     t.integer "frequency"
-    t.integer "days_since_completed"
+    t.date "date_completed"
     t.string "assigned_to"
     t.string "assigned_to_email"
     t.string "notes"

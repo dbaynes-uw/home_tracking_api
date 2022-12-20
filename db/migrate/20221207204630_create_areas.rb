@@ -4,7 +4,7 @@ class CreateAreas < ActiveRecord::Migration[7.0]
      t.string     :name
      t.string     :description
      t.integer    :frequency
-     t.integer    :days_since_completed
+     t.date       :date_completed
      t.string     :assigned_to
      t.string     :assigned_to_email
      t.string     :notes
