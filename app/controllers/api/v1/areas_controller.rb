@@ -6,46 +6,43 @@ class Api::V1::AreasController < ApplicationController
   def index 
     if params[:_dueFilter].present?
       dueBy = params[:_dueFilter].to_str()
-      @work_areas = Area.where("frequency <= ? ", dueBy)
+      @work_areas = Area.where("frequency <= ? ", dueBy).order(frequency: "asc")
     elsif params[:_limit].present?
       limit = params[:_limit].to_i
       @work_areas = Area.order(frequency: "asc").last(limit) 
     elsif params[:_pastDue].present?
       @work_areas = Area.order(frequency: "asc") #.last(limit) 
-      # Date Today - date_completed > frequency
-      # date_completed + frequency > Date.today
-      # duration = (Date.today - date_completed).to_i
-      # where date_completed + frequency
       arr = Array.new
       @work_areas.each do |area|
-        if area.date_completed
-          if area.date_completed+ area.frequency.days < Date.today
-            puts "Hit - Frequency: #{area.frequency} Days - Date Completed: #{area.date_completed} - Date Due: #{area.date_completed + area.frequency.days} Today: #{Date.today} Under By #{((area.date_completed + area.frequency.days) - Date.today).to_i * -1} days".red
+        if area.action_date
+          if area.action_date+ area.frequency.days < Date.today
             arr << area
-          else
-            puts "Miss - Frequency: #{area.frequency} Days - Date Completed: #{area.date_completed} - Date Due: #{area.date_completed + area.frequency.days} Today: #{Date.today} Over By #{((area.date_completed + area.frequency.days) - Date.today).to_i} days".cyan
           end
         end
-      end
+      end   
       @work_areas = arr  #Area.order(frequency: "asc").last(limit) 
     else
       @work_areas = Area.order(frequency: "asc")
     end
     @areas = @work_areas
-    render json: @areas.to_json
+    render json: @areas.to_json({include: [:histories]})
   end
 
   # GET /areas/1
   def show
-    render json: @area
+    render json: @areas.to_json({include: [:histories]})
   end
 
   # POST /areas
   def create
     @area = Area.new(area_params)
-    @area.date_completed = Date.today
+    @area.action_date = Date.today.strftime("%m-%d-%y")
     if @area.save
-      render json: @area, status: :created, location: 'api/vi/areas/path(@area)'
+      @area.histories.new(
+        notes: "Area created for #{@area.description}",
+        status: 'new').save!
+      #render json: @area, status: :created, location: 'api/vi/areas/path(@area)'
+      render json: @areas.to_json({include: [:histories]}),  status: :created
     else
       render json: @area.errors, status: :unprocessable_entity
     end
@@ -54,8 +51,21 @@ class Api::V1::AreasController < ApplicationController
   # PATCH/PUT /areas/1
   def update
     if @area.update(area_params)
-      ##NotificationMailer.with(area: @area).notification_email_view.deliver
-      render json: @area
+
+      @history = @area.histories.new
+      if @area.completed == true
+        @history.notes = "Last completed"
+        @history.status = 'completed'
+        @history.save!      
+        ##NotificationMailer.with(area: @area).notification_email_view.deliver
+      else       
+        @history.notes = "Last opened"
+        @history.status = 'active'
+        @history.save!      
+        ##NotificationMailer.with(area: @area).notification_email_view.deliver
+      end
+      #render json: @area
+      render json: @area.to_json({include: [:histories]}),  status: :created
     else
       render json: @area.errors, status: :unprocessable_entity
     end
@@ -80,10 +90,24 @@ class Api::V1::AreasController < ApplicationController
                                    :description,
                                    :frequency, 
                                    :completed, 
-                                   :date_completed,
+                                   :action_date,
                                    :notes,
                                    :_limit,
                                    :_dueFilter,
                                    :pastDue)
     end
+    def history_params
+      if params[:histories]
+        params.require(:histories).map do |history|
+          history.permit(:name,
+                     :area_id,
+                     :name,
+                     :description,
+                     :assigned_to,
+                     :assigned_to_email,
+                     :status,
+                     :notes)
+        end
+      end
+    end       
 end

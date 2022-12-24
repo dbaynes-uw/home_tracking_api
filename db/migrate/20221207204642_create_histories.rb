@@ -1,6 +1,6 @@
-class CreateTasks < ActiveRecord::Migration[7.0]
+class CreateHistories < ActiveRecord::Migration[7.0]
   def change
-    create_table :tasks do |t|
+    create_table :histories do |t|
       t.references :area
       t.string     :name
       t.string     :description
